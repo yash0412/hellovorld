@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<title>Sign Up</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+	<body>
+		<div class="ui fixed inverted menu">
+			<div class="ui container">
+				<div class="header item"><i class="bus icon"></i>SAYAS Registration</div>
+			</div>
+			<a href="/user" class="item"><i class="home icon"></i>Home</a>
+		</div>
+    <style>
+        .ui.form .field{
+            border: 1px solid black;
+            border-radius: 6px;
+        }
+        .row {
+            column-count: 2;
+        }
+        /*.col {*/
+        /*    display: table-cell;*/
+        /*    border-left:1px solid black;*/
+        /*    padding: 8%;*/
+        /*}*/
+        body {
+            background:linear-gradient(red, black);
+            background-position: center;
+            background-size: cover;
+        }
+        div.column{
+            width: 70%;
+        }
+       
+    </style>
+
+        <div class="ui middle aligned center aligned grid">
+                <div class="column">
+                    <br>
+                    <h2 class="ui image header">
+                        <div class="content">
+                        Your Details
+                        </div>
+                        (*marked fields are compulsory)
+                    </h2>
+                    
+                    <div class="ui stacked segment">
+                      <form class="ui form" method="POST" action="/user"> 
+                        <div class="row">
+                            <div class="col">
+                                <div class="field">
+                                    <input type="text" name="stu[sic]" placeholder="Student's SIC*" required>
+                                </div>
+                                <div class="field">
+                                    <input type="text" name="stu[name]" placeholder="Student's Full Name*" required>
+                                </div>
+                                <div class="field">
+                                    <input type="email" name="stu[email]" placeholder="Student's Email*" required>
+                                </div>
+                                <div class="field">
+                                    <input type="password" name="stu[pass]" placeholder="Student's Password*" required>
+                                </div>
+                                <div class="field">
+                                    <input type="text" placeholder="Student's Mobile*" name="stu[mobile]" maxlength="10" required>
+                                </div>
+                                <div class="field">
+                                    <select name="stu[route]" onChange="showStops(this);" required>
+                                        <option value="">Select a Route</option>
+                                        <% for(var i=1;i<data.length;i++){ %>
+                                            <option value='<%=i%>'><%=i%></option>
+                                        <% } %> 
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <select name="stu[stop]" id="stop">
+                                        <option value="">----Select a Route first----</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col hidden">
+                                <div class="field">
+                                    <input type="text" name="par[name]" placeholder="Parent's Full Name*" required>
+                                </div>
+                                <div class="field">
+                                  <input type="email" placeholder="Parent's Email" name="par[email]">
+                                </div>      
+                                <div class="field">
+                                    <input type="password" name="par[pass]" placeholder="Parent's Password*" required>
+                                </div>
+                                <div class="field">
+                                    <input type="text" placeholder="Parent's Mobile*" name="par[mobile]" maxlength="10" required>
+                                </div> 
+                                
+                                <div class="field">
+                                    <input type="checkbox" name="tnc" class="ui toggle checkbox" required>
+                                    I agree to the <a href="/tnc"><u>Terms and Conditions</u></a>
+                                </div>                
+                                <input type="submit" class="ui button" value="Register">
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+    
+                </div>
+            </div>
+    <script>
+        function showStops(elem){
+            var index = elem.selectedIndex;
+            if(index){
+                var currentLocation = window.location;
+                var URL = currentLocation.protocol+"//"+currentLocation.host+"/showStops?route="+index;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                       // Typical action to be performed when the document is ready:
+                       string=xhttp.responseText;
+                       data = JSON.parse(string);
+                       console.log(data);
+                       var options = "<option value=''>----Select a Stop----</option>";
+                      for(var i=1;i<data.length-1;i++){
+                           options = options + "<option value='"+(i+1)+"'>"+i+". "+data[i].name+"</option>";
+                      }
+                      document.getElementById("stop").innerHTML = options;
+                    }
+                };
+                xhttp.open("GET", URL, true);
+                xhttp.send();
+            } else {
+                document.getElementById("stop").innerHTML = "<option value=''>----Select a Route first----</option>";
+            }
+        }
+    </script>

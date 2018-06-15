@@ -1,0 +1,31 @@
+i.icon {
+	font-size: 1.2em;
+}
+
+.container.main {
+	margin-top: 7.0em;
+}
+
+.blog {
+	margin-top: 7.0em;
+}
+
+#delete {
+	display: inline;
+}
+
+.back {
+	margin-top: 5.0em;
+	margin-left: 1.0em;
+}
+.title {
+	color: black;
+}
+.container.main.show {
+	margin-top: 1.0em;
+}
+
+.Copyright {
+	margin-bottom: 5.0em;
+	font-weight: bold;
+}

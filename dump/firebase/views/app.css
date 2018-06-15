@@ -1,0 +1,55 @@
+.icon {
+	font-size: 1.2em;
+}
+
+.container.main {
+	margin-top: 7.0em;
+}
+
+.blog {
+	margin-top: 7.0em;
+}
+
+.ui.fixed.inverted.menu .item a {
+    color: black;
+}
+
+#delete {
+	display: inline;
+}
+
+.back {
+	margin-top: 5.0em;
+	margin-left: 1.0em;
+}
+
+.title {
+	color: black;
+}
+
+.container.main.show {
+	margin-top: 1.0em;
+}
+
+body {
+    background-color: #DADADA;
+    
+}
+
+body > .grid {
+	height: 100%;
+}
+
+.image {
+	margin-top: -100px;
+}
+
+.column {
+	max-width: 450px;
+}
+
+.ui.button {
+    background-color: rgba(0, 0, 0, 0.87);
+    color: #DADADA;
+}
+

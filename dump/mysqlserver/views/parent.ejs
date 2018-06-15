@@ -1,0 +1,25 @@
+<html>
+    
+    <head>
+        <title>
+            Parent
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="only.css">
+    </head>
+    <body>
+        <div class="jumbotron container">
+            <h1>Parent Page</h1>
+            <h4>Login to Continue...</h4>
+            <form action="/parlogin" method="POST">
+                <input type="text" class="form-control" placeholder="Username" name="uid">
+                <input type="text" class="form-control" placeholder="Password" name="pass">
+                <br>
+                <input type="submit" class="btn btn-success" style="margin: 10px 0px">
+            </form>    
+            <hr>
+            <h3>Or</h3>
+            <a href="/parsignup" class="btn btn-info">Sign Up</a>
+        </div>
+    </body>
+</html>

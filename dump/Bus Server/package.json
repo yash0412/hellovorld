@@ -1,0 +1,17 @@
+{
+  "name": "bus-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yash",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "firebase-admin": "^5.12.0",
+    "mysql": "^2.15.0",
+    "npm": "^6.0.0"
+  }
+}

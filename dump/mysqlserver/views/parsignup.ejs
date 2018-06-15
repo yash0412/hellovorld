@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>
+            P sign Up
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="only.css">
+    </head>
+    <body>
+        <div class="jumbotron container">
+            <h1>Enter your Details</h1>
+            <form action="/parsub" method="POST">
+                <input type="text" class="form-control" placeholder="Name of the Parent" name="pname" required>
+                <input type="text" class="form-control" placeholder="Phone Number" name="pph" required>
+                <input type="email" class="form-control" placeholder="Email" name="pemail" required>
+                <input type="text" class="form-control" placeholder="Username" name="pusern" required>
+                <input type="password" class="form-control" placeholder="Password" name="ppass" required>
+                <input type="submit" class="btn btn-success" style="margin: 10px 0px">
+            </form>     
+        </div>
+        </body>
+    </html>
