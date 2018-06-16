@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>
+            SellX
+        </title>
+        <link rel="shortcut icon" href="S.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+        <link rel="stylesheet" href="style3.css">
+    </head>
+    <body>
+        <div class="ui inverted segment">
+            <div class="ui inverted secondary menu">
+                <div class="header item">
+                    <strong>SellX</strong>
+                </div>  
+                <a class="item" href="/home">
+                    <i class="Home icon"></i>
+                    Home
+                </a> 
+                <div class="right menu">
+                    <a class="item"><i class="icon user circle"></i><%= data.user%></a>
+                    <a class="item" href="/logout"><i class="Sign Out icon"></i>Log Out</a>
+                </div>
+            </div>
+        </div>
+        <div class="ui grid">
+            <% if(data.ads.length>0){
+                    data.ads.forEach(function(ad){ %>
+                <a href="/product?id=<%= ad.product_id %>">
+                <div class="five wide column">
+                    <div class="ad">
+                        <div class="image"><img src= "<%=ad.image %>" ></div>
+                        <span class="details">
+                            <span class="desc"><%= ad.description %></span><br>
+                            <span class="price">Price: ₹ <%=ad.price%>/-</span><br>
+                            <br>
+                            <a href="/delcart?id=<%=ad.product_id%>"><button class="ui button basic negative"><i class="trash alternate icon"></i>Delete</button></a>
+                        </span>
+                    </div>
+                </div>
+                </a>
+            <% });
+            } else {%>
+            <h1>Cart is empty</h1>
+            <% } %>
+        </div>
+            
